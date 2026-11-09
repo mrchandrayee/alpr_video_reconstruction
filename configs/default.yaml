@@ -1,0 +1,26 @@
+# Configure weights trained for your camera/domain.
+vehicle:
+  model: yolov8n.pt
+  confidence: 0.35
+  classes: [2, 3, 5, 7] # COCO: car, motorcycle, bus, truck
+  tracker: bytetrack.yaml
+plate:
+  model: models/license_plate_detector.pt
+  confidence: 0.25
+  enabled: true
+ocr:
+  languages: [en]
+  gpu: false
+  min_confidence: 0.20
+tracking:
+  persist: true
+  line_y_ratio: 0.55
+display:
+  show_vehicle_boxes: true
+  show_plate_boxes: true
+  show_line: true
+  panel_title: "Plates"
+output:
+  save_video: true
+  path: runs/alpr_output.mp4
+  show_window: true
